@@ -1,20 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Add Training Data</title>
 </head>
 <body>
-    <h1>Add Training Data</h1>
-    <form method="POST">
+    <h1>Add New Training Data</h1>
+    <form method="POST" enctype="multipart/form-data">
         <label for="question">Question:</label>
         <input type="text" id="question" name="question" required>
         <br>
         <label for="answer">Answer:</label>
         <input type="text" id="answer" name="answer" required>
         <br>
+        <label for="link">Link:</label>
+        <input type="text" id="link" name="link">
+        <br>
+        <label for="video">Video:</label>
+        <input type="text" id="video" name="video">
+        <br>
+        <label for="picture">Picture:</label>
+        <input type="file" id="picture" name="picture">
+        <br>
+        <label for="document">Document (PDF):</label>
+        <input type="file" id="document" name="document">
+        <br>
         <button type="submit">Add</button>
     </form>
-    <br>
-    <a href="/view">View Training Data</a>
+    
 </body>
 </html>

@@ -1,31 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>View Training Data</title>
 </head>
 <body>
     <h1>Training Data</h1>
-
-    <!-- Search form -->
-    <form method="GET" action="/view">
-        <input type="text" name="query" placeholder="Search for questions...">
+    <form method="GET">
+        <input type="text" name="query" placeholder="Search questions...">
         <button type="submit">Search</button>
     </form>
-
     <ul>
-        {% for item in data %}
-        <li>
-            <strong>Q:</strong> {{ item.question }} <br>
-            <strong>A:</strong> {{ item.answer }} <br>
-            <a href="{{ url_for('edit_training_data', id=item.id) }}">Edit</a> |
-            <form method="POST" action="{{ url_for('delete_training_data', id=item.id) }}" style="display:inline;">
-                <button type="submit">Delete</button>
-            </form>
-        </li>
+        {% for data in data %}
+            <li>
+                <strong>Question:</strong> {{ data.question }}<br>
+                <strong>Answer:</strong> {{ data.answer }}<br>
+                <strong>Link:</strong> <a href="{{ data.link }}">{{ data.link }}</a><br>
+                <strong>Video:</strong> <a href="{{ data.video }}">{{ data.video }}</a><br>
+                <strong>Picture:</strong> {% if data.picture %}<a href="{{ data.picture }}">View Picture</a>{% endif %}<br>
+                <strong>Document:</strong> {% if data.document %}<a href="{{ data.document }}">View Document</a>{% endif %}<br>
+                <a href="{{ url_for('edit_training_data', id=data.id) }}">Edit</a> | 
+                <form action="{{ url_for('delete_training_data', id=data.id) }}" method="POST" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
         {% endfor %}
     </ul>
-
-    <br>
-    <a href="/add">Add More Training Data</a>
 </body>
 </html>

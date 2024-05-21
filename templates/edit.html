@@ -1,20 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Edit Training Data</title>
 </head>
 <body>
     <h1>Edit Training Data</h1>
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         <label for="question">Question:</label>
         <input type="text" id="question" name="question" value="{{ data.question }}" required>
         <br>
         <label for="answer">Answer:</label>
         <input type="text" id="answer" name="answer" value="{{ data.answer }}" required>
         <br>
-        <button type="submit">Update</button>
+        <label for="link">Link:</label>
+        <input type="text" id="link" name="link" value="{{ data.link }}">
+        <br>
+        <label for="video">Video:</label>
+        <input type="text" id="video" name="video" value="{{ data.video }}">
+        <br>
+        <label for="picture">Picture:</label>
+        <input type="file" id="picture" name="picture">
+        <br>
+        <label for="document">Document (PDF):</label>
+        <input type="file" id="document" name="document">
+        <br>
+        <button type="submit">Save</button>
     </form>
-    <br>
-    <a href="/view">Back to Training Data</a>
 </body>
 </html>
